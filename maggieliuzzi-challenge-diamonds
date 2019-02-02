@@ -1,0 +1,37 @@
+def Diamonds(n):
+    n = int(n)
+    row_col_length = (n*2)+1
+    diamond = ''
+    row_n = 1
+    n_stars = 1
+    n_blanks = n
+
+    # for each row
+    for row in range(0,row_col_length):
+
+        # adding blank spaces
+        diamond += ' '*n_blanks
+        if row in range(0,row_col_length/2):
+            n_blanks -= 1
+        else:
+            n_blanks += 1
+
+        # adding stars
+        diamond += '*'*n_stars
+        if row in range(0, row_col_length/2):
+            n_stars += 2
+        else:
+            n_stars -= 2
+
+        if row is not row_col_length-1:
+            diamond += '\n'
+            row_n += 1
+
+    print(diamond)
+    return diamond
+
+Diamonds(0)
+Diamonds(1)
+Diamonds(2)
+Diamonds(3)
+Diamonds(10)
